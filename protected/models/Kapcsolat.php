@@ -51,7 +51,6 @@ class Kapcsolat extends CActiveRecord
 			array('name, subject, email', 'required'),
 			array('name, subject, email, email_to', 'length', 'max'=>255),
 			array('id_orvos', 'numerical', 'integerOnly'=>true),
-			array('lastmod','date', 'format'=>'yyyy-M-d H:m:s'),
 			array('body', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -96,7 +95,8 @@ class Kapcsolat extends CActiveRecord
 		 	':item'=> $item,
 		 	':id_orvos'=> Yii::app()->params['orvos'],
 		 ));
-		 return $record->value;
+		 if($record){$value=$record->value;} else {$value=false;}
+		 return $value;
 		}
 	 	/**
 	 * Config tabla adott item-hez tartozo id-vel ter vissza 

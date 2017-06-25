@@ -9,23 +9,23 @@ class RendidoController extends Controller
 	 */
 	public $layout='//layouts/main';
 	
-/**/ public function __construct($id,$module=null){
-
-		parent::__construct($id,$module);
-
+/*	public function __construct(){
+		
 		$this->setLayout();
-	
-	} /**/
+		
+	}
 
+		
 	/**
 	 * layout kiolvasása az orvos táblábol
 	 */
-/**/	public function setLayout(){
+	public function setLayout(){
       $orvos= new Orvos;
-	  $rec=$orvos->findByPk(Yii::app()->params['orvos']);
+	  $rec=$orvos->search();
 	  $lay="//layouts/".$rec->layout;
-	  if($rec){	  $this->layout = $lay; }
-	 } /**/
+	  $this->layout = $lay;	
+	 }
+
 
 	/**
 	 * Specifies the access control rules.

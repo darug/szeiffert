@@ -7,8 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'DDS Háziorvos',
-//	'sourceLanguage'=>'hu_hu',
+	'name'=>'Házi és gyermekorvosok',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -45,7 +44,7 @@ return array(
 				'gii'										=>	'gii',
 			//	'<id:\d+>'									=>  '',
 			//	'<name:\d+>'								=>  '',
-				''											=>	'content/index/home',
+			// index.php-ban kerül megadásra	''											=>	'/1/content/home',
 				'admin/content/delete/id/<id:\d+>'			=>	'admin/content/delete',
 				'admin/'									=>	'admin/admin/index',
 				'admin/login'								=>	'admin/authentication/login',
@@ -72,7 +71,7 @@ return array(
 					'ipFilters'=>array('127.0.0.1'),
 				),*/
 				// uncomment the following to show log messages on web pages
-				/*  
+				/* 
 				array(
 					'class'=>'CWebLogRoute',
 				),
@@ -86,14 +85,8 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'dg@ddstandard.hu',
-	/****  @var string params['adminEmails'] ****/
 		'orvos'=> $GLOBALS['file1'],
-	/****  @var string params['orvos_old'] ****/
 		'orvos_old'=>'',
-	/****  @var string params['cont_name'] home hiányában, ha home0-t töltjük be ****/
 		'cont_name'=>'',
-	/****  @var string params['eudolg'] 7True, ha az eudolg domainről jöttünk be ****/
-		'eudolg'=>'',
-		
 	),
 );

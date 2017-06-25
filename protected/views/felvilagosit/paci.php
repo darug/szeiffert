@@ -4,7 +4,7 @@
  * 
  */
 session_name("paci.php");
-session_start('paci.php');
+//session_start('paci.php');
 include ('config/databasepaci.php');
 include ('setarrayspaci.php');
 include_once ('form/form_helpers.php');
@@ -42,7 +42,7 @@ $(document).ready(function(){
 		//	echo "név: ".$name; ?>
 			<h2>Kitöltött kérdőívek száma: <?php echo $sum; ?></h2><fieldset>
 <legend align="center"><B> &nbsp<b> Tájékoztatás </b>
-&nbsp </B></legend><b><center> Az adatvédelmi tájékoztató <a href=http://ddstandard.hu/adatvedelmi_nyilatkozat target=_blank> itt olvasható!</a> Kérdésekre adott válaszaikat előre is köszönjük! DD Standard Kft.</center></b>
+&nbsp </B></legend><b><center> Az adatvédelmi tájékoztató <a href=<?php echo Yii::app()->request->baseUrl."/".Yii::app()->params['orvos']; ?>/site/avnyil target=_blank> itt olvasható!</a> Kérdésekre adott válaszaikat előre is köszönjük! DD Standard Kft.</center></b>
 </fieldset>
 <fieldset>
 <legend align="center"><B> &nbsp <B>Gyermek- és háziorvos honlappal kapcsolatos kérdések </B> 
@@ -175,13 +175,14 @@ If(isset($elmul)){
        foreach($elmul[$i]["list"] as $kulcsmul1=>$key){
        $mulname=$elmul[$i]['name']."_".$kulcsmul1;
  //      echo "$mulname $_REQUEST[$mulname] <br>";
-       if($_REQUEST[$mulname]=="on"){
+       if(isset($_REQUEST[$mulname])){if($_REQUEST[$mulname]=="on"){
        $kulcs.=$elmul[$i]["name"]."_".$kulcsmul1.",";
        $ertek.="'true',";
        }
+	   }
      } // foreach ($elmul
 }// foreach ($elmul as $i=>$key)
-}//if
+}//if(isset($elmul))
 if(isset($elcom)){
    foreach ($elcom as $i=>$key){
       

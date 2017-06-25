@@ -59,6 +59,12 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 	<div class="row">
+		<?php echo $form->labelEx($model,'dname')."izé"; ?>
+<br />
+		<?php echo $form->textField($model,'dname',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'dname'); ?>
+	</div>
+	<div class="row">
 		<?php echo $form->labelEx($model,'lastmod'); ?> : 
 		<?php echo $model->lastmod; ?>
 	</div>

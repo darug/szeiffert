@@ -19,8 +19,8 @@ class SiteController extends Controller
 /**/	public function setLayout(){
       $orvos= new Orvos;
 	  $rec=$orvos->findByPk(Yii::app()->params['orvos']);
-	  $lay="//layouts/".$rec->layout;
-	  if($rec){	  $this->layout = $lay; }
+	  
+	  if($rec){$lay="//layouts/".$rec->layout;	  $this->layout = $lay; }
 	 
 	 } /**/	 
 	  
@@ -75,6 +75,14 @@ class SiteController extends Controller
 		if($content === NULL) throw new CHttpException(404, "A keresett tartalom nem található");
 		$this->render('index', array('record' => $content));*/
 		$this->render('index');
+	}
+/**
+ *  Adatvédelmi nyilatkozat kiírása
+ */
+	public function actionAvnyil()
+	{
+				$error="";	
+				$this->render('pages/av',$error);
 	}
 
 	/**

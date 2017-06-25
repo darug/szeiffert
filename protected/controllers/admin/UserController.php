@@ -63,7 +63,7 @@ class UserController extends Controller
 
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('error','update','view'),
+				'actions'=>array('update',),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -98,18 +98,10 @@ class UserController extends Controller
 	public function actionCreate()
 	{
 		$model=new User;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['User']))
 		{
-		/**	Echo "<pre>".print_r($_POST['User'])."</pre>";
-			exit; /* */
 			$model->attributes=$_POST['User'];
 			$model->id=$_POST['User']['id'];
-		/**	Echo "<pre>".print_r($model->attributes)."</pre>";
-			exit; /* */
 			$model->password= crypt($model->password, $this->blowfishSalt());
 			$model->lastmod=date('Y-m-d H:i:s',time());
 			if($model->password==$_POST['user']['password2'] && $model->insert()){
@@ -150,13 +142,14 @@ class UserController extends Controller
 			$model->lastmod=date('Y-m-d H:i:s',time());
 			$record=User::model()->findByAttributes(array('username'=>Yii::app()->user->name));
 		if($record->id==$id or Yii::app()->user->name=='admin'){
+			$hiba=False;
 			if(strlen($model->password)<16){if($_POST['User']['password']==$_POST['User']['password2']){$model->password= crypt($model->password, $this->blowfishSalt());
 													$hiba=false;}
 												else{
 													Yii::app()->user->setFlash('error', 'A két jelszó nem egyezik meg!');
 													$hiba=true;
 												}}
-			$model->lastmod=date('Y-m-d H:i:s',time());
+		//	$model->lastmod=time();
 			if(!$hiba){if($model->save()){	
 				Yii::app()->user->setFlash('success', 'A változtatások mentésre kerültek.');
 			//	$this->redirect(array('view','id'=>$model->id));

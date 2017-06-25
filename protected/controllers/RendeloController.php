@@ -109,6 +109,7 @@ class RendeloController extends Controller
 	{
 		//$dataProvider=new CActiveDataProvider('Korzet')
 		$orvos=Orvos::model()->findByPk(Yii::app()->params['orvos']);
+		$id_rendelo=$orvos->id_rendelo;
 		$rendelo=Rendelo::model()->findByPk($orvos->id_rendelo);
 		$model=new Korzet();
 		$model->unsetAttributes();  // clear any default values

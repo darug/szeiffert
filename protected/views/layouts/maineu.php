@@ -9,6 +9,7 @@ if(strpos($_SERVER["REQUEST_URI"],"index.php")){
 	$this->redirect($R_URI); 
 } */ 
 //új érték a menü linkekhez!  
+ $dom="";
 $orv_err=false;
 $orvos_nev=$orvos_megnev=$status="";
 $alap=Yii::app()->request->baseUrl;

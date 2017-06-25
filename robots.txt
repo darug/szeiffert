@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /framework/
+Disallow: /htdocs/
+Disallow: /images/
+Disallow: /protected/
+	Allow:/view/
+Disallow: /requirements/
+Disallow: /tartalek/
+Disallow: /themes/

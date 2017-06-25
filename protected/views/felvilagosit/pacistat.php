@@ -1,6 +1,6 @@
 <?php
 session_name("paci.php");
-session_start('paci.php');
+//session_start('paci.php');
 include ('config/databasepaci.php');
 include ('setarrayspaci.php');
 include_once ('form/form_helpers.php');
@@ -15,7 +15,7 @@ http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <?php  $f=explode("/",$_SERVER["REQUEST_URI"]);
- if($f[1]==dem){ $rt="/dem/"; }
+ if($f[1]=="dem"){ $rt="/dem/"; }
   else{ $rt=""; }
 ?><title>paci.php Kérdőív statisztika</title>
 <link href="<?php echo $rt; ?>default.css" rel="stylesheet" type="text/css" /> 
@@ -40,7 +40,7 @@ http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd>
 			$sum=mysqli_num_rows($lis);} else {$sum=0;} ?>
 			<h2>Kitöltött kérdőívek száma: <?php echo $sum; ?></h2><fieldset>
 <legend align="center"><B> &nbsp<b> Tájékoztatás </b>
-&nbsp </B></legend><font color="black"><b><center> Az adatvédelmi tájékoztató <a href=http://ddstandard.hu/adatvedelmi_nyilatkozat target=_blank> itt olvasható!</a> Kérdésekre adott válaszaikat előre is köszönjük! DD Standard Kft.</center></b>
+&nbsp </B></legend><font color="black"><b><center> Az adatvédelmi tájékoztató <a href=<?php echo Yii::app()->request->baseUrl."/".Yii::app()->params['orvos']; ?>/site/avnyil target=_blank> itt olvasható!</a> Kérdésekre adott válaszaikat előre is köszönjük! DD Standard Kft.</center></b>
 </font></fieldset>
 <fieldset>
 <legend align="center"><B> &nbsp <B>Gyermek- és háziorvos honlappal kapcsolatos kérdések </B> 

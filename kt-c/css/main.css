@@ -1,0 +1,338 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal, 10pt, Arial,Helvetica,sans-serif;
+	background: #EFEFEF;
+}
+
+#page
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid #C9E0ED;
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+	border-top: 3px solid #C9E0ED;
+}
+
+#content
+{
+    padding: 20px;
+}
+
+#sidebar
+{
+	padding: 20px 20px 20px 0;
+}
+
+#footer
+{
+	padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+}
+
+#logo
+{
+	padding: 10px 20px;
+	font-size: 200%;
+}
+
+#mainmenu
+{
+	background:white url(bg.gif) repeat-x left top;
+}
+
+#mainmenu ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	color:#ffffff;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #6399cd;
+	background-color:#EFF4FA;
+	text-decoration:none;
+}
+
+#message{
+position: fixed;
+top: 65px;
+left: 0px;
+width: 100%;
+color: #333333;
+}
+
+.message_siker, .message_hiba, .message_sima{
+margin: 0px auto;
+padding: 20px;
+width: 500px;
+background-image: url('../images/admin/msg_bck.png');
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+text-align: center;
+position: relative;
+}
+
+.msg_close{
+margin: 0px;
+padding: 0px;
+position: absolute;
+top: 5px;
+right: 5px;
+}
+
+.msg_close:hover{
+cursor: hand;
+cursor: pointer;
+}
+
+.message_siker{
+border: 2px solid #5ace57;
+}
+.message_sima{
+border: 2px solid #ffe931;
+}
+
+.message_hiba{
+border: 2px solid #db0f0f;
+}
+
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+div.flash-error
+{
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+	background:#FFF6BF;
+	color:#514721;
+	border-color:#FFD324;
+}
+
+div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-error a
+{
+	color:#8a1f11;
+}
+
+div.flash-notice a
+{
+	color:#514721;
+}
+
+div.flash-success a
+{
+	color:#264409;
+}
+
+div.form .rememberMe label
+{
+	display: inline;
+}
+
+div.view
+{
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #C9E0ED;
+}
+
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	padding: 5px 20px;
+}
+
+div.breadcrumbs span
+{
+	font-weight: bold;
+}
+
+div.search-form
+{
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+}
+
+.portlet
+{
+
+}
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background:#EFFDFF;
+}
+
+.portlet-content ul
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet-content li
+{
+	padding: 2px 0 4px 0px;
+}
+
+.operations
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.operations li
+{
+	padding-bottom: 2px;
+}
+
+.operations li a
+{
+	font: bold 12px Arial;
+	color: #0066A4;
+	display: block;
+	padding: 2px 0 2px 8px;
+	line-height: 15px;
+	text-decoration: none;
+}
+
+.operations li a:visited
+{
+	color: #0066A4;
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+
+
+.ktc_meres{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.ktc_meres_seged{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	font-size: 190px;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	top: 40%;
+	margin-top: -60px;
+}
+fieldset{
+border:2px solid #00f;
+margin:0px,3px,0px,3px;
+padding:8px;
+border-radius: 15px;
+}
+
+legend {
+    color: #00f; 
+    font-size: 120%;
+    padding:8px;
+    text-align: center;
+}
+p.red
+{
+margin: 0.5em 1em 0.5em 1em;
+font: bold 1.1em Arial; color:red;
+} 
+p.green
+{
+margin: 0.5em 1em 0.5em 1em;
+font: bold 1.1em Arial; color:green;
+} 
+p.blue
+{
+margin: 0.5em 1em 0.5em 1em;
+font: bold 1.1em Arial; color:blue;
+} 
+span.blue
+{
+margin: 1em 0,5em 1em 1em;
+font: 1.1em Arial; color:blue;
+} 
+span.red
+{
+margin: 1em 0,5em 1em 1em;
+font: 1em Arial; color:red;
+} 
+span.green
+{
+margin: 1em 0,5em 1em 1em;
+font: 1em Arial; color:green;
+} 

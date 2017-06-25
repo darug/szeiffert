@@ -65,7 +65,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		if(isset($_POST['<?php echo $this->modelClass; ?>']))
 		{
 			$model->attributes=$_POST['<?php echo $this->modelClass; ?>'];
-			
+			$model->lastmod=date('Y-m-d H:i:s',time());
 			if($model->save()){
 				
 				Yii::app()->user->setFlash('success', 'A változtatások mentésre kerültek.');
@@ -102,6 +102,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		if(isset($_POST['<?php echo $this->modelClass; ?>']))
 		{
 			$model->attributes=$_POST['<?php echo $this->modelClass; ?>'];
+			$model->lastmod=date('Y-m-d H:i:s',time());
 			if($model->save()){
 				
 				Yii::app()->user->setFlash('success', 'A változtatások mentésre kerültek.');

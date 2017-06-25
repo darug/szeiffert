@@ -2,8 +2,8 @@
 
 /**
  * @class Contact modell
- * @brief Kontakt oldal orvos adatok tÃ¡rolÃ¡sÃ¡ra solgÃ¡l
- *  
+ * @brief Kontakt oldal orvos adatok tárolására solgál
+ *
  * This is the model class for table "contact".
  *
  * The followings are the available columns in table 'contact':

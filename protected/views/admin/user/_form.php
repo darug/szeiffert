@@ -40,7 +40,7 @@
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 	<div>
-		<p> Jelszó ismétlés:</p>
+		<p> Jelszó ismétlés: * </p>
 		<input size="60" maxlength="255" name="User[password2]" id="User_password2" type="password" value="" />
 	</div>
 	<div class="row">
@@ -64,7 +64,7 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'lastmod'); ?>
 		<br>
-		<?php echo $model->lastmod; ?>
+		<?php echo date("Y-m-d H:m:i",$model->lastmod); ?>
 		<?php echo $form->error($model,'lastmod'); ?>
 	</div>
 

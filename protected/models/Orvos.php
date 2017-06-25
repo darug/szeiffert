@@ -139,7 +139,7 @@ class Orvos extends CActiveRecord
  	{
 		$sql='SELECT  DISTINCT `status`FROM `orvos` WHERE 1';
 		$records=Yii::app()->db->createCommand($sql)->queryAll();
-		$uzenet.="Elkészült honlapok státusza: ";
+		$uzenet="Elkészült honlapok státusza: ";
 		if($records){
 			foreach ($records as $key=>$value) {
 			    $n=Orvos::model()->count('status=:status AND dname=:dname',array(':status'=>$value['status'],

@@ -1,4 +1,5 @@
 <?php
+$mysqli="";
 include_once ('form/form_helpers.php');
 $textnum=1;
 $selnum=1;
@@ -24,7 +25,7 @@ $gyakor=array("g0"=>"0=soha","g1"=>"1=hetente","g2"=>"2=havonta","g3"=>"3=negyed
 
 $igennem=array("i"=>"igen","n"=>"nem");
 
-$felfile=paci.php;
+$felfile="paci.php";
 
 $eltext[]=text("orvosnev", "*Az orvos vezeték és kereszt neve","u",100,"t","i","",",",$mysqli)
 ;
@@ -42,9 +43,9 @@ $eltext[]=text("megjegyn","Megjegyzés, egyéb javaslat","s",140,"t","n","","",$
 ;
 $elsel[]= array("name"=>"hajlando","label"=>"A felmérés sikeressége esetén, hajlandó-e az orvosa felé közvetíteni annak tartalmát?","list"=>$igennem,$mysqli)
 ;
-$eltext[]=text("email","Ha a válasza igen kérjük, hogy adja meg az e-mail címét:","",64,"e","","",$msqli)
+$eltext[]=text("email","Ha a válasza igen kérjük, hogy adja meg az e-mail címét:","",64,"e","","",$mysqli)
 ;
-$eltext[]=text("eletkor","*Az Ön életkora:","a",4,n,i,18,110,$mysqli)
+$eltext[]=text("eletkor","*Az Ön életkora:","a",4,"n","i",18,110,$mysqli)
 ;
 $elsel[]= array("name"=>"neme","label"=>"Az Ön neme:","list"=>$nemlist,$mysqli)
 ;

@@ -3,11 +3,9 @@
  * Ez a view layout/main része, amely a Gabó féle modern kinézetet állítja elő
  * 
  */
- /* @var $this Controller 
-if(strpos($_SERVER["REQUEST_URI"],"index.php")){
-	$R_URI= strtr($_SERVER["REQUEST_URI"], array("index.php" => $_SESSION['ho']['orvos']));
-	$this->redirect($R_URI); 
-} */ 
+ /** @var $this Controller 
+  *  @file protected/view/layout/main.php
+  */ 
 //új érték a menü linkekhez! 
 Yii::app()->params['eudolg']=0; // Ez hazi-orvosok.hu domainen futo oldal 
 $alap=Yii::app()->request->baseUrl;
@@ -110,6 +108,7 @@ if(Yii::app()->params['orvos']>0){$_SESSION['ho']['orvos']=Yii::app()->params['o
 						echo " honlapjának teszt oldala</a></div>";
 						break;
 				}
+					echo "<p class=red>Figyelem ez az oldal tesztelés céltját szolgálja!</p>";
 	/** 2015.11.07. kivéve DeGe                   				if($status=="OK"){?>
 						<div id="page_title"><a href="<?php echo $bUrllink; ?>/home"><?php echo $orvos_nev." ".$orvos_megnev;?> honlapja</a> </div>
 					<?php } else { ?>

@@ -10,7 +10,7 @@ $:$gyakor=array("g0"=>"0=soha","g1"=>"1=hetente","g2"=>"2=havonta","g3"=>"3=negy
 $:$igennem=array("i"=>"igen","n"=>"nem");
 //:elágazást biztosító változok: 
 //:feldolgozast vegzo fajl neve:
-$:$felfile=paci.php;
+$:$felfile="paci.php";
 //:-----------------kérdőívrész----------------
 //:kiir: kiírandó szöveg, amelyben html tag-ok is beleírhatók
 //:text mezo: (nev, kiiras,"",hossz,tipus("n","t","e"),kotelzo-e("i" vagy""),min,max ertek,$msqli)
@@ -35,9 +35,9 @@ legstart:<B>Honlap tartalmával kapcsolatos kérdések </B>
 multicheckbox:("name"=>"hon_tartalom","label"=>"*Kérem jelölje be azokat az elemeket, amelyeket az orvosi honlapnak tartalmazni kellene","list"=>array("rendido"=>"Rendelési információk","orvos"=>"Az orvos bemutatkozása","eler"=>"Elérhetőség","uzen"=>"Üzenet küldési lehetőség","foglal"=>"időpont foglalás","felvil"=>"Ügyeleti és egyéb felvilágosító információk","korzet"=>"Körzethatárok ismertetése","info"=>"Szabadság és egyéb aktuális információk"),$mysqli)
 text:("megjegyn","Megjegyzés, egyéb javaslat","s",200,"t","n","","",$mysqli)
 select:("name"=>"hajlando","label"=>"A felmérés sikeressége esetén, hajlandó-e az orvosa felé közvetíteni annak tartalmát?","list"=>$igennem,$mysqli)
-text:("email","Ha a válasza igen kérjük, hogy adja meg az e-mailcímét:","",64,"e","","",$msqli)
+text:("email","Ha a válasza igen kérjük, hogy adja meg az e-mailcímét:","",64,"e","","",$mysqli)
 legend:
 legstart:<B>Kitöltőhöz kapcsolható statisztikai kérdések </B>
-text:("eletkor","*Az Ön életkora:","a",4,n,i,18,110,$mysqli)
+text:("eletkor","*Az Ön életkora:","a",4,"n","i",18,110,$mysqli)
 select:("name"=>"neme","label"=>"Az Ön neme:","list"=>$nemlist,$mysqli)
 legend:

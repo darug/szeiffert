@@ -181,11 +181,11 @@ class FelvilagositAdminController extends Controller
 	 */
 	public function actionIndex()
 	{
-		if(Yii::app()->user->name=='admin'){
+/**		if(Yii::app()->user->name=='admin'){
 						$dataProvider=new CActiveDataProvider('Felvilagosit');}
-					else{
+					else{ */
 						$dataProvider=Felvilagosit::model()->search();
-					}	
+		//			}	
 		//$dataProvider=new CActiveDataProvider('Felvilagosit');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

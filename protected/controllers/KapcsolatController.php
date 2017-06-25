@@ -34,9 +34,11 @@ class KapcsolatController extends Controller
 /**/	public function setLayout(){
       $orvos= new Orvos;
 	  $rec=$orvos->findByPk(Yii::app()->params['orvos']);
-	  $this->id_orvos=$rec->id;
-	  $lay="//layouts/".$rec->layout;
-	  if($rec){	  $this->layout = $lay; }
+	  
+	  
+	  if($rec){$lay="//layouts/".$rec->layout;
+	  		$this->id_orvos=$rec->id;
+	  	 	$this->layout = $lay; }
 	 
 	 } /**/
 	 	
@@ -61,7 +63,7 @@ class KapcsolatController extends Controller
 	 * különben params('adminEmail') címre megy!
 	 */
 	public function actionKapcsolat()
-{
+{	
     $model=new Kapcsolat;
 	/** Beszúrva 2015.11.07. DeGE */
 	$content = Content::model()->find(array(

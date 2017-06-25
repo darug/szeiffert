@@ -26,7 +26,10 @@
  * aktualisan következo id
  */
 $m=1;
-while($value=$szeiffert[$n]){
+$hiany=array();
+//while($value=$szeiffert[$n]){
+  for ($j=0; $j<count($szeiffert) ; $j++) { 
+      $value=$szeiffert[$j];
 	//print "<tr>";
 	// foreach($value as $ertek){print "<td>".$ertek."</td>";}
 	$n++;
@@ -36,7 +39,7 @@ while($value=$szeiffert[$n]){
 		$m++;
 		
 	}
-	$n_szeiffert=$n;
+	$n_szeiffert=count($szeiffert);
 ?>
 <!--
 </table>-->
@@ -54,14 +57,15 @@ $ered=sorozat($hiany);
  * aktualisan következo id
  */
 $m=1;
-while($value=$haziorvos[$n]){
+//while($value=$haziorvos[$n]){
+for ($j=0; $j <count($haziorvos) ; $j++) { 
+	$value=$haziorvos[$j];
 	$n++;
 	if(($z=$value[0]-$m)>0){
 		for ($i=0; $i <$z ; $i++) {$hiany[]=$m; $m++;}
 		}
 		$m++;		
 	}
-
 ?> <!--
 </table> -->
 
@@ -76,6 +80,7 @@ Eltérés: <span class=red>Egymás alatt mind a két tartalom látható </span>;
 	
 <?php 
 $n=0;
+$temp="";
 foreach($head as $value){echo "<th>".$value."<br>".$n."</th>";$n++;} ?>	
 </tr>
 <?php for($i=0;$i<$n_szeiffert;$i++){
@@ -104,30 +109,30 @@ foreach($head as $value){echo "<th>".$value."<br>".$n."</th>";$n++;} ?>
 <a name="beallit"></a><p class=red>Adatbázis utasítás kiadása</p></a>
 	<label for="table:name">Válasszon táblát: </label>
 	<select name="table_name" id="table_name">
-		<option value="orvos" <?php if($req['table_name']=="orvos"){print "selected";} ?>>Orvos</option>
-		<option value="rendelo" <?php if($req['table_name']=="rendelo"){print "selected";} ?>>Rendelő</option>
-		<option value="user" <?php if($req['table_name']=="user"){print "selected";} ?>>Felhasználó</option>
-		<option value="config" <?php if($req['table_name']=="config"){print "selected";} ?>>Config</option>
-		<option value="content" <?php if($req['table_name']=="content"){print "selected";} ?>>Content</option>
-		<option value="rendido" <?php if($req['table_name']=="rendido"){print "selected";} ?>>Rendelési idő</option>
-		<option value="felvilagosit" <?php if($req['table_name']=="felvilagosit"){print "selected";} ?>>Tájékoztatások</option>
-		<option value="uzenet" <?php if($req['table_name']=="uzenet"){print "selected";} ?>>Üzenet</option>
+		<option value="orvos" <?php if(isset($req['table_name'])=="orvos"){print "selected";} ?>>Orvos</option>
+		<option value="rendelo" <?php if(isset($req['table_name'])=="rendelo"){print "selected";} ?>>Rendelő</option>
+		<option value="user" <?php if(isset($req['table_name'])=="user"){print "selected";} ?>>Felhasználó</option>
+		<option value="config" <?php if(isset($req['table_name'])=="config"){print "selected";} ?>>Config</option>
+		<option value="content" <?php if(isset($req['table_name'])=="content"){print "selected";} ?>>Content</option>
+		<option value="rendido" <?php if(isset($req['table_name'])=="rendido"){print "selected";} ?>>Rendelési idő</option>
+		<option value="felvilagosit" <?php if(isset($req['table_name'])=="felvilagosit"){print "selected";} ?>>Tájékoztatások</option>
+		<option value="uzenet" <?php if(isset($req['table_name'])=="uzenet"){print "selected";} ?>>Üzenet</option>
 	</select>
 <label for="muvelet">Válasszon műveletet: </label>
 	<select name="muvelet" id="muvelet" >
-		<option value="insert" <?php if($req['muvelet']=="insert"){print "selected";} ?> >Beszúrás</option>		
-		<option value="update" <?php if($req['muvelet']=="update"){print "selected";} ?> >Frissítés</option>
+		<option value="insert" <?php if(isset($req['muvelet'])=="insert"){print "selected";} ?> >Beszúrás</option>		
+		<option value="update" <?php if(isset($req['muvelet'])=="update"){print "selected";} ?> >Frissítés</option>
 	</select>
 	<label for="irany"> Válasszon irányt: </label>
 	<select name="irany" id="irany" >
 		<option value="nincs" > </option>
-		<option value="szeiffert" <?php if($req['irany']=="szeiffert"){print "selected";} ?>>hazi-orvosok -> szeiffert</option>		
-		<option value="haziorvos" <?php if($req['irany']=="haziorvos"){print "selected";} ?>>szeiffert -> hazi-orvosok</option>
+		<option value="szeiffert" <?php if(isset($req['irany'])=="szeiffert"){print "selected";} ?>>hazi-orvosok -> szeiffert</option>		
+		<option value="haziorvos" <?php if(isset($req['irany'])=="haziorvos"){print "selected";} ?>>szeiffert -> hazi-orvosok</option>
 	</select>
-	<br>Kezdő id:  <input type="text" name="kezd_id" id="kezd_id" size="6" width="6" MAXLENGTH="6" value=<?php print "\"".$req['kezd_id']."\""; ?> />
-	&nbsp;&nbsp;Utolsó id:  <input type="text" name="veg_id" id="veg_id" size="6" width="6" value=<?php print "\"".$req['veg_id']."\""; ?>/>
-	&nbsp;&nbsp;Mező sorszám: <input type="text" name="mezo_szam" id="mezo_szam" size="2" width="2" value=<?php print "\"".$req['mezo_szam']."\""; ?>/>
-	&nbsp;&nbsp;Mező név: <input type="text" name="mezo_nev" id="mezo_nev" size="20" width="30" value=<?php print "\"".$req['mezo_nev']."\""; ?>/>
+	<br>Kezdő id:  <input type="text" name="kezd_id" id="kezd_id" size="6" width="6" MAXLENGTH="6" value=<?php print "\"".isset($req['kezd_id'])."\""; ?> />
+	&nbsp;&nbsp;Utolsó id:  <input type="text" name="veg_id" id="veg_id" size="6" width="6" value=<?php print "\"".isset($req['veg_id'])."\""; ?>/>
+	&nbsp;&nbsp;Mező sorszám: <input type="text" name="mezo_szam" id="mezo_szam" size="2" width="2" value=<?php print "\"".isset($req['mezo_szam'])."\""; ?>/>
+	&nbsp;&nbsp;Mező név: <input type="text" name="mezo_nev" id="mezo_nev" size="20" width="30" value=<?php print "\"".isset($req['mezo_nev'])."\""; ?>/>
 	<br><br>
 	<input type="submit" value="Mentés" />
 <?php
@@ -142,8 +147,10 @@ function sorozat($hiany){
 	$list=0;
 	$elso=0;
 	$nn=0;
+	$hianyzik="";
 	//print "<pre>".var_dump($hiany)."</pre>";
-	if(isset($hiany)&&$hiany[0]>" "){
+	if(isset($hiany)){
+	//	if($hiany[0]>" "){
 	foreach($hiany as $key=>$val){
 		if($elozo==""){$elozo=$val;} else {
 	
@@ -154,7 +161,7 @@ function sorozat($hiany){
 		}
 		$nn++;
 		}
-	}}
+	}}//}
 	else{$hianyzik=' nincs lista!';}
 	if($list){$hianyzik.=$elso." - ".$elozo;}
 	$ered=array($nn,$hianyzik);

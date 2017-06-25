@@ -22,6 +22,7 @@ function Inputstat($name,$label,$stat,$db_tablanev_table,$mysqli){ // Html input
 	if($lis=$mysqli->query($select)){
 	    $n=0;
 		$sum=0;
+		$text="";
 		switch ($stat) {
 			case 'n':
 				while($lisar=$lis->fetch_assoc()){

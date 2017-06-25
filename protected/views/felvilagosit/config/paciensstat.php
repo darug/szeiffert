@@ -1,6 +1,6 @@
 <?php
 session_name("paciens.php");
-session_start('paciens.php');
+//session_start('paciens.php');
 include ('config/databasepaciens.php');
 include ('setarrayspaciens.php');
 include_once ('form/form_helpers.php');

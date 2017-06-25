@@ -69,7 +69,8 @@ class OrvosController extends Controller
 		if(isset($_POST['Orvos'])){$model->attributes =$_POST['Orvos'];
 									$dataProvider=$model->search0();}
 
-		if($dataProvider===null){$dataProvider=new CActiveDataProvider('Orvos',array('sort'=>(array(
+		/*if($dataProvider===null)*/
+		if(!isset($dataProvider)){$dataProvider=new CActiveDataProvider('Orvos',array('sort'=>(array(
     													'defaultOrder'=>'name'))));}
 		
 		

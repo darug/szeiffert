@@ -9,7 +9,7 @@
 ?>
 <h1>Elérhetőség</h1>
 
-<?php if ($content->content>" "){ echo $content->content;}  //beszúrva 2015.11.07. DeGe
+<?php if (isset($content)){ echo $content->content;}  //beszúrva 2015.11.07. DeGe
 /*$record=$mod2->find('item=:item',array(':item'=>'irszam'));
 $cim=$record->value;
 $record=$mod2->find('item=:item',array(':item'=>'varos'));
@@ -37,7 +37,9 @@ $tel=$record->value;*/
 Fáradozását előre is köszönöm!</p>
 <p class="note">A <span class="required">*</span>-gal jelölt mezők kitöltése kötelező.</p>
 <?php if($model->config('email_oldal')==''){?>
-<p class="red">Figyelem! A fenti e-mail cím hiánya miatt a levél a rendszergazdának kerül elküldésre!!!</p>
+<p class="red">Figyelem! A fenti e-mail cím hiánya miatt a levél a rendszergazdának kerül elküldésre!!!<br>
+	A levél továbbítására a rendszergazdának sincs lehetősége, ezért javasoljuk a telefonon vagy személyesen történő megkeresést!
+</p>
 <?php } ?>	
 <div class="form">
 
@@ -82,8 +84,8 @@ Fáradozását előre is köszönöm!</p>
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>
 		</div>
-		<div class="hint">Kérem, hogy az ábrán látható betüket írja be.
-		<br/>A kis és nagy betüket nem különböztetjük meg.</div>
+		<div class="hint">Kérem, hogy az ábrán látható betűket írja be.
+		<br/>A kis és nagy betűket nem különböztetjük meg.</div>
 		<?php echo $form->error($model,'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
@@ -97,5 +99,5 @@ Fáradozását előre is köszönöm!</p>
 </div><!-- form -->
 
 <?php endif; ?>
-<?php echo $mod2->posta; ?>
+<?php // nem tudom mit akartam kiiratni!!!!!!!!!!!!!!!!!!!!!!!!!!! echo $mod2->posta; ?>
 </div><!-- form -->

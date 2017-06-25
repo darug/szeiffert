@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="language" content="en" />
+	<title>késleltetés</title>
+</head>
+
+<body>
+
+<p>js késleltetés kimérése  </p>
+<script type="text/javascript">
+var i = 0, diff = 0, d = new Date();
+
+var timer = setTimeout(function() {
+  diff += new Date() - d;
+  timer = setTimeout(arguments.callee, 0);
+  if (i++==200) {
+    clearTimeout(timer);
+    alert("Ciklus number:"+i+" Resolution (msec): "+diff/i);
+  };
+  d = new Date();
+}, 0);
+</script>
+</body>

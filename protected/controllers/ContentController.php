@@ -35,8 +35,8 @@ class ContentController extends Controller
 	public function setLayout(){
       $orvos= new Orvos;
 	  $rec=$orvos->findByPk(Yii::app()->params['orvos']);
-	  $lay="//layouts/".$rec->layout;
-	  if($rec){	  $this->layout = $lay; }
+	  
+	  if($rec){$lay="//layouts/".$rec->layout;	  $this->layout = $lay; }
 	 
 	 } /**/
 	/**

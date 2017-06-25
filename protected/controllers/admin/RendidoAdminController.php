@@ -51,9 +51,10 @@ class RendidoAdminController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','update','create','delete'),
+				'actions'=>array('index','update','create','delete','javit'),
 				'users'=>array('@'),
 			),
+		
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -95,6 +96,123 @@ class RendidoAdminController extends Controller
 			'model'=>$model,
 		));
 	}
+/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionJavit()
+	{
+		$orvos=new Orvos;
+		$orv=$orvos->findAll();	
+		$rendido=new Rendido;
+		$lista="indul:<br>";
+		$n=0;
+		$id_list=array();
+		foreach ($orv as  $key=>$value) {
+				$id=$value['id'];
+			//	$lista.=$id."= ";
+				$rido=$rendido->findAll('id_orvos=:id_orvos', array(':id_orvos'=>$id));
+				 $bad=False;
+				 $n=1;
+				 $mezok="";
+				foreach ($rido as $key1 => $value1) {
+					 $napszak=$value1['name'];
+					
+					switch ($napszak) {
+						case '1de':
+						case '1du':
+						case '2de':
+						case '2du':
+						case '3de':
+						case '3du':
+						case '4de':
+						case '4du': 
+							if($value1['start']=="" 
+								&& $value1['stop']=="" 
+								&& $value1['comment']>""
+					){$bad=True;}
+			//		$lista.=$id."/ $n , $napszak= ".$value1['start'].":: ";
+							$mezok.=$n." id:".$value1['id']." ".$value1['comment'].", ";
+							$id_list[]=$value1['id'];	
+							$n++;	
+										
+							break;
+						default:
+					}
+					
+				} // foreach($rido)			
+			if($bad)
+			{$lista.=$id."<br>";
+	//	 $lista.=$rido[$n-13]['1de']." hétfő ".$rido[$n-13]['1du']." ".$rido[$n-13]['comment']."<br>";}
+			$lista.=$mezok."<br>";}
+			//$n , $napszak= "; }
+			} // foreach($orv)
+			$rido=$rendido->findByPk(2248);
+			$lista.="<br>".$rido->id." ".$rido->name.$rido->start." ".$rido->stop." ".$rido->comment." ";
+			$lista.="<br>javítás start:".substr($rido->comment, 0,5)." stop:".substr($rido->comment, 6,5)."<br>";
+			foreach($id_list as $id){
+			//	$lista.=$id.", ";
+			}
+/* A továbbiakban kézzel kell beállítani a javítási határokat és esetleg a programon is változtatni kell a commant tartalom függvényében!!!*/
+		$id_start=2248;
+		$id_stop=2913;
+		$m=0;
+		$rossz=0;
+		$lista.="<br>----------------------";
+
+		foreach ($id_list as  $id) {
+/************* ok kijavította legközelebb ezt a megjegyzést kell kivenni!!					
+			if($id>=$id_start && $id<=$id_stop){
+				$rido=$rendido->findByPk($id);		
+				if(strpos($rido->name,'de') && 5<intval($rido->comment) &&	intval($rido->comment) <12 ){
+					$rido->start=substr($rido->comment, 0,5);
+					$rido->stop=substr($rido->comment, 6,5);
+					$rido->comment="";
+					if($rido->update()){$m++;}else{$rossz++;}
+					//$lista.="<br>$id ".$rido->name." ".$rido->start." ".$rido->stop." ".intval($rido->comment);
+				} else {//$lista.="<br>$id ".$rido->name." törlendő: ".$rido->comment;
+						}
+				if(strpos($rido->name,'du') && 11<intval($rido->comment) && intval($rido->comment) <20){
+					$rido=$rendido->findByPk($id);
+					$rido->start=substr($rido->comment, 0,5);
+					$rido->stop=substr($rido->comment, 6,5);
+					$rido->comment="";
+					//if($rido->update()){$m++;}else{$rossz++;}
+					$lista.="<br>$id ".$rido->name." ".$rido->start." ".$rido->stop." ".intval($rido->comment);
+				}  else {//$lista.="<br>$id ".$rido->name." törlendő: ".$rido->comment;
+						}
+			    $rido->comment="";
+				if($rido->update()){$m++;}else{$rossz++;}
+			} ----> ezt is!!*/
+		}
+		$lista.="<br> sikeresen mentett rekordok száma:$m, sikertelen mentések száma:$rossz";
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Rendido']))
+		{
+			$model->attributes=$_POST['Rendido'];
+			$model->lastmod=date('Y-m-d H:i:s',time());
+			if($model->save()){
+				
+				Yii::app()->user->setFlash('success', 'A változtatások mentésre kerültek.');
+			//	$this->redirect($this->createAbsoluteUrl($this->uniqueid));
+				$this->redirect('index');
+			}
+			else{
+				
+				Yii::app()->user->setFlash('error', 'Hibásan kitöltött űrlap.');
+				
+			}
+			
+		}
+		
+		$this->module_info['item'] = "Rossz rendelési idők, listázása, javítása";
+		
+		$this->render('javit',array(
+			'lista'=>$lista,
+		));
+	}
 
 	/**
 	 * Updates a particular model.
@@ -111,20 +229,14 @@ class RendidoAdminController extends Controller
 		if(isset($_POST['Rendido']))
 		{
 			$model->attributes=$_POST['Rendido'];
-		/*	echo "<pre>";
-			echo var_dump($_POST['Rendido']);
-			echo "</pre>";
-			exit; */
 			$model->lastmod=date('Y-m-d H:i:s',time());
-			if($model->save()){ 
+			if($model->save()){
 				
 				Yii::app()->user->setFlash('success', 'A változtatások mentésre kerültek.');
 				$this->redirect(array('index'));
 				
 			}
 			else{
-				
-				
 				
 				Yii::app()->user->setFlash('error', 'Hibásan kitöltött űrlap.');
 				

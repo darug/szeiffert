@@ -1,8 +1,8 @@
 <?php
 /**
  * 
-index.php fájlt állít elő a config.txt alapján
-setarrays.php-t állít elő a config.txt alapján, ez hozza létre a $eltext, $elsel és $elmul tömböket,
+index.php fájlt állítja elő a config.txt alapján
+setarrays.php-t állítja elő a config.txt alapján, ez hozza létre a $eltext, $elsel és $elmul tömböket,
 amelyek a text input, a slect és csoportos checkbox elemeit tartalmazza.
 smcreate.php-t, amelyik az adatbázis tábla létrehozását végzi
 $eltext=array(''); //mező tömb
