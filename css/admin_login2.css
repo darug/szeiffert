@@ -1,0 +1,68 @@
+#login_box{
+width: 480px;
+padding: 10px;
+margin: 150px auto 0px auto;
+}
+
+#title{
+width: 480px;
+height: 30px;
+margin: 0px;
+padding: 0px;
+float: left;
+}
+
+#title h1{
+font-size: 14px;
+font-weight: bold;
+color: #666666;
+text-align: center;
+}
+
+#company_info{
+width: 200px;
+margin: 0px;
+padding: 50px 0px 0px 0px;
+float: left;
+text-align: center;
+color: #666666;
+}
+
+#login_form{
+width: 240px;
+margin: 0px;
+padding: 0px 20px 0px 20px;
+float: left;
+background-image: url('../images/admin/content_bck.png');
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+#login_form h2{
+color: #333333;
+font-size: 18px;
+padding: 10px;
+text-align: left;
+}
+
+#login_form h2 img{
+vertical-align: middle;
+margin-right: 10px;
+width: 32px;
+height: 32px;
+}
+
+img.sec_img{
+margin: 2px 0px;
+}
+
+#credits{
+position: absolute;
+bottom: 10px;
+right: 10px;
+}
+
+input[type=text], input[type=password]{
+width: 220px;
+}

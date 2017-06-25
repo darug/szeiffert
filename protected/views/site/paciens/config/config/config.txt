@@ -1,0 +1,42 @@
+legstart:Alapadatok
+select:('name'=>'egyhtag','label'=>'Egyházi tagság','list'=>array( 'igen'=>"Igen",'nem'=>"Nem"))
+text:('tkezdet', 'Tagság kezdete(év):', '', '4','n','','1900','2011')
+text:('titulus', 'Titulus:', '', '10','t','','','')
+text:('vnev', 'Vezetéknév:', '', '32','t','i','','')
+text:('knev', 'Keresztnév:', '', '24','t','i','','')
+text:('lnev', 'Leánykori név:', '', '40','','','','')
+text:('szhely', 'Születési hely:', '', '40','t','i','','')
+text:('szev', 'Születési év:', '', '4','n','i','1900','2011')
+text:('szhonap', 'Születési hónap:', '', '2','n','i','1','12')
+text:('sznap', 'Születési nap:', '', '2','n','i','1','31','')
+legend:
+legstart:Lakcím adatok
+$eltext[]=text('irszam', 'Irányítószám:', '', '4','n','i','1000','');
+$eltext[]=text('varos', 'Város:', '', '24','t','i','','');
+$eltext[]=text('utca', 'Utca:', '', '32','t','i','','');
+$eltext[]=text('hazszam', 'Házszám:', '', '5','t','i','','');
+$eltext[]=text('ekieg', 'Egyéb kiegészítő jelzés:', '', '12','t','','','');
+$eltext[]=text('email', 'E-mail', '', '36','e','','','');
+$eltext[]=text('vtel', 'Vonalas telefon:', '', '14','n','','1111111','');
+$eltext[]=text('mtel', 'Mobil telefon:', '', '14','n','','06201000000','');
+$eltext[]=text('skype', 'Skype azonosító:', '', '34','t','','','');
+legend:
+legstart:Vallás
+select:('name'=>"vallas",'label'=>'Vallás','list'=>array( 'romai'=>"Római katolikus",'gorog'=>"Görög katolikus",'egyeb'=>"Egyéb"));
+select:('name'=>"keresztseg",'label'=>'Keresztség','list'=>array( 'nem'=>"Nem",'igen'=>"Igen",'nemtom'=>"Nem tudom"));
+select:('name'=>'bermalas','label'=>'Bérmálás','list'=>array(  'nem'=>"Nem",'igen'=>"Igen",'nemtom'=>"Nem tudom"));
+select:('name'=>'hazassag','label'=>'Házasság kötés','list'=>array(  'nem'=>"Nem",'igen'=>"Igen",'nemtom'=>"Nem tudom"));
+select:('name'=>'papi','label'=>'Papi szentség','list'=>array(  'nem'=>"Nem",'igen'=>"Igen",'nemtom'=>"Nem tudom"));
+legend:
+legstart:Munkavállalás
+select:('name'=>'munkvall','label'=>'Munkavállalás','list'=>array('acs'=>"ács",'asztalos'=>"asztalos",'komuves'=>"kőműves",'lakatos'=>"lakatos",'tetofedo'=>"tetőfedő",'festo'=>"festő",'mazolo'=>"mázoló",'burkoló'=>"burkoló",'vizszereles'=>"vízszerelés",'takaritas'=>"takarítás",'gepiras'=>"gépírás",'adatbevitel'=>"adatbevitel",'tervezés'=>"tevezés",'segedmunka'=>"segédmunka",'barmimas'=>"bármi más",'egyéb'=>"egyéb"))
+select:('name'=>'munkvallmod','label'=>'Munkavbállalás módja','list'=>array(  'nemvallal'=>"Nem vállalok",'ingyenes'=>"Ingyen vállalok",'teriteses'=>"Térírtésért vállalok"))
+text:('egyebmunka','Egyéb munka:','','40','t','','','')
+legend:
+legstart:Egyházi adó
+select:('name'=>'jovedelem','label'=>'Jövedelem','list'=>array(  'nincs'=>"Nincs önálló jövedelmem",'kiskoru'=>"Kiskorú vagyok",'van'=>"Van önálló jövedelmem"))
+select:('name'=>'fizmod','label'=>'Fizetési mód','list'=>array('sekrestye'=>"Sekrestyében fizetek",'iroda'=>"Irodában fizetek",'csekk'=>"Csekken fizetek",'dijbeszedo'=>"Díjbeszedő küldését kérem"))
+text:('kinek','Kinek a nevén fizeti az egyházi adót?','','40','t','','','')
+text:('csekkszam','Kért csekkek száma:','','2','n','','','20')
+legend:
+text:('megjegyzes','Megjegyzés:','','80','t','','','')

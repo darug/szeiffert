@@ -1,0 +1,79 @@
+input[type=text], input[type=password], textarea, img.sec_img{
+font-size: 14px;
+padding: 5px;
+color: #666666;
+border: 3px solid #cccccc;
+line-height: 14px;
+-moz-box-shadow: 1px 1px 2px #333333 inset;
+-webkit-box-shadow: 1px 1px 2px #333333 inset;
+box-shadow: 1px 1px 2px #333333 inset;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+font-family: Arial;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus, textarea.text_error:focus, select.text_error:focus{
+border: 3px solid #ffffff;
+color: #333333;
+}
+
+button{
+padding: 5px;
+background: none; 
+border: 0px;
+font-size: 16px;
+color: #000000;
+cursor: hand;
+cursor: pointer;
+margin: 2px 20px 0px 0px;
+}
+
+button img{
+border: 0px;
+vertical-align: middle;
+}
+
+button:hover{
+color: #333333;
+}
+
+label{
+color: #333333;
+font-size: 14px;
+}
+
+select{
+color: #666666;
+font-size: 14px;
+}
+
+select:focus{
+color: #333333;
+}
+
+a.button{
+text-decoration: none;
+font-size: 16px;
+color: #000000;
+}
+
+a.button:hover{
+color: #333333;
+}
+
+input.error, select.error, textarea.error{
+border: 3px solid #d72727;
+}
+
+.errorMessage{
+color: #db0f0f;
+}
+
+#edit table.htmlarea{
+z-index: 998;
+border: 3px solid #cccccc;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
